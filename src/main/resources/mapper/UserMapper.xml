@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo1.mapper.UserMapper">
+
+    <insert id="insertUser"  parameterType="com.example.demo1.bean.User">
+        insert into t_user(username,password)
+        values(#{name},#{password})
+    </insert>
+    <select id="selectByUser" resultType="User" parameterType="com.example.demo1.bean.User">
+        select username name,password from t_user
+        where username=#{name} and password=#{password}
+    </select>
+    <select id="selectByName" resultType="String" parameterType="com.example.demo1.bean.User">
+        select username name from t_user
+        where username=#{name}
+    </select>
+    <delete id="deleteByUser" parameterType="User">
+        delete from t_user
+        where  username=#{name} and password=#{password}
+    </delete>
+    <update id="updateUser" parameterType="User">
+        update t_user
+        set password=#{password}
+        where username=#{name}
+    </update>
+</mapper>
