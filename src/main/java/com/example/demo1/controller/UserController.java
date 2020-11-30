@@ -69,6 +69,7 @@ public class UserController {
             out.println("alert('用户名或密码输入有误，请重新输入！');");
             out.println("history.back();");
             out.println("</script>");
+
         }
     }
 
